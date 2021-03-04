@@ -1,5 +1,3 @@
-const CustomError = require("../extensions/custom-error");
-
 module.exports = function countCats(matrix) {
   let count = 0;
   for (var i = 0; i < matrix.length; i++) {
