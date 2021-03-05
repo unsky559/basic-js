@@ -6,13 +6,11 @@ module.exports = function transform(arr) {
   let copy = arr.slice();
   let result = [];
   let k = 0;
-  for(let i = 0; i <= arr.length; i++){
+  for(let i = 0; i < arr.length; i++){
     switch (copy[i]) {
       case '--discard-next':
           if(i != arr.length-1)
             copy[i+1] = null;
-          else
-             copy.pop()
         break
       case '--discard-prev':
           if(i != 0)
@@ -20,17 +18,17 @@ module.exports = function transform(arr) {
         break
       case '--double-next':
           if(i != arr.length-1)
-            copy.splice(i+1, 0, copy[i+1]);
+            copy.splice(i, 1, copy[i+1]);
         break
       case '--double-prev':
           if(i != 0)
-            copy.splice(i+1, 0, copy[i-1]);
+            copy.splice(i, 1, copy[i-1]);
         break
     }
   }
   for(let j = 0; j < copy.length; j++){
-    if(!seq.includes(copy[j]) && copy[j] !== null){
-      result[k] = copy[j]
+    if(!seq.includes(copy[j]) && copy[j] !== null && copy[j] !== undefined){
+      result.push(copy[j]);
       k++
     }
   }
@@ -38,6 +36,7 @@ module.exports = function transform(arr) {
 
 };
 
+console.log(module.exports([[1, 2, '--discard-prev', '--double-prev', 4, 5]]))
 
 
 /**2 */
