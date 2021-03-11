@@ -1,5 +1,3 @@
-const CustomError = require("../extensions/custom-error");
-
 const ALPH = ['A', 'B', 'C', 'D', 'E',
               'F', 'G', 'H', 'I', 'J',
               'K', 'L', 'M', 'N', 'O',
